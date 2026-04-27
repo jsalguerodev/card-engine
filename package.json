@@ -1,0 +1,29 @@
+{
+  "name": "c06-card-engine",
+  "version": "0.0.1",
+  "description": "A small, logic-heavy TypeScript project designed to practice unit testing with Vitest. No UI, no database, no poker knowledge required — just pure functions, types, and rules.",
+  "homepage": "https://github.com/jsalguerodev/card-engine#readme",
+  "bugs": {
+    "url": "https://github.com/jsalguerodev/card-engine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsalguerodev/card-engine.git"
+  },
+  "license": "MIT",
+  "author": "jsalguero.dev",
+  "type": "commonjs",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "dependencies": {
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0"
+  }
+}
