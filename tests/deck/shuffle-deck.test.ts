@@ -3,12 +3,12 @@ import { Deck, Card } from "../../src/types"
 
 describe ('shuffleDeck', () => {
 
-  let originalDeck: Deck
+  let initialDeck: Deck
   let shuffledDeck : Deck
 
   beforeEach(() =>{
-    originalDeck = createDeck()
-    shuffledDeck = shuffleDeck(originalDeck)
+    initialDeck = createDeck()
+    shuffledDeck = shuffleDeck(initialDeck)
   })
 
   const getCardId = (card : Card) : string => {
@@ -26,18 +26,18 @@ describe ('shuffleDeck', () => {
   test ('Should not modify original deck', () => {
     const baseDeck = createDeck()
 
-    expect(originalDeck).toEqual(baseDeck)
+    expect(initialDeck).toEqual(baseDeck)
 
   })
 
   test ('Should return a new deck instance', () => {
-    expect(shuffledDeck).not.toBe(originalDeck)
+    expect(shuffledDeck).not.toBe(initialDeck)
   })
 
   test ('At least one card should change position', () => {
     let changedCards = 0
-    for (let i = 0; i < originalDeck.length; i++) {
-      if (getCardId(originalDeck[i]!) !== getCardId(shuffledDeck[i]!)) changedCards++
+    for (let i = 0; i < initialDeck.length; i++) {
+      if (getCardId(initialDeck[i]!) !== getCardId(shuffledDeck[i]!)) changedCards++
     }
 
     expect(changedCards).toBeGreaterThan(0)
@@ -51,7 +51,7 @@ describe ('shuffleDeck', () => {
   })
 
   test ('Should contian the same cards', () => {
-    const originalCardsMap = originalDeck.map(card => getCardId(card))
+    const originalCardsMap = initialDeck.map(card => getCardId(card))
     const shuffledCardsMap = shuffledDeck.map(card => getCardId(card))
 
     expect ( [...originalCardsMap].sort() ).toEqual( [...shuffledCardsMap].sort() )
