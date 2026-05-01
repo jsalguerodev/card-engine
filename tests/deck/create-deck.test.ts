@@ -21,6 +21,14 @@ describe ('CreateDeck', () => {
     expect(deck[0]).toEqual({ suit: 'hearts', rank: 2 })
   })
 
+  test ('Card 14 should be diamonds 2', () => {
+    expect(deck[13]).toEqual({ suit: 'diamonds', rank: 2 })
+  })
+
+  test ('Card 27 should be diamonds 2', () => {
+    expect(deck[26]).toEqual({ suit: 'clubs', rank: 2 })
+  })
+
   test ('Last card should be spades A', () => {
     expect(deck[51]).toEqual({ suit: 'spades', rank: 'A' })
   })

@@ -1,7 +1,13 @@
-import { Deck } from "../types/Deck.type.js";
+import { Deck, SUITS, RANKS } from "../types"
 
 export const createDeck = (): Deck => {
+  const deck : Deck = []
 
-  return [{ suit: 'hearts', rank: 2 }, { suit: 'hearts', rank: 3 }]
+  SUITS.forEach( suit => {
+    RANKS.forEach( rank => {
+      deck.push({ suit, rank })
+    })
+  })
 
+  return deck
 }
