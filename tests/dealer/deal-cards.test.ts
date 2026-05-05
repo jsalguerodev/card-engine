@@ -77,6 +77,8 @@ describe('dealCards', () => {
 
     const result = dealCards(options)
 
+    // console.log( result.hands )
+
     result.hands.forEach(hand => {
       expect(hand.length).toBe(cardsPerPlayer)
     })
