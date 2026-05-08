@@ -1,5 +1,5 @@
 export { Suit, SUITS } from './Suit.type'
-export { Rank, RANKS } from './Rank.type'
+export { Rank, RANKS, RANKS_VALUES } from './Rank.type'
 export { Card } from './Card.type'
 export { Deck } from './Deck.type'
 export { Hand } from './Hand.type'
