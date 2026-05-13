@@ -4,8 +4,8 @@ export const isFlush = (hand: Hand) : boolean => {
 
   const suits: Partial< Record <Suit,number> > = hand.reduce(
     (acc, card) => {
-      acc[card.suit] = (acc[card.suit] || 0) + 1;
-      return acc;
+      acc[card.suit] = (acc[card.suit] || 0) + 1
+      return acc
     },
     {} as Partial<Record<Suit, number>>
   )
