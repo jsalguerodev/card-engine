@@ -33,6 +33,21 @@ describe('getRankCounts', () => {
     expect(rankCounts[2]).toBe(2)
   })
 
+  test('Should return count 2 for two pairs', ()=>{
+    const hand: Hand = [
+      {suit: 'hearts', rank: 2},
+      {suit: 'clubs', rank: 2},
+      {suit: 'diamonds', rank: 6},
+      {suit: 'spades', rank: 6},
+      {suit: 'hearts', rank: 9}
+    ]
+
+    const rankCounts = getRankCounts( hand )
+
+    expect(rankCounts[2]).toBe(2)
+    expect(rankCounts[6]).toBe(2)
+  })
+
   test('Should return count 3 for three of a kind', ()=>{
     const hand: Hand = [
       {suit: 'hearts', rank: 2},
