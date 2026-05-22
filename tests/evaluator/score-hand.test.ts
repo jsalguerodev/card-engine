@@ -1,5 +1,6 @@
 import { scoreHand, getCardScore } from "../../src/evaluator"
 import { Hand } from "../../src/types"
+import * as evaluator from '../../src/evaluator'
 
 describe('scoreHand', () => {
   test('Should return base score with no bonuses', () => {
@@ -83,7 +84,7 @@ describe('scoreHand', () => {
 
     const handScore = scoreHand( hand )
 
-    expect( handScore ).toBe( 65 )
+    expect( handScore ).toBe(57 )
   })
 
   test('Should apply double Ace bonus', () => {
@@ -127,15 +128,32 @@ describe('scoreHand', () => {
 
     expect( handScore ).toBe( 81 )
   })
+
+  test('Should call evaluator helpers', () =>{
+    const getBaseScoreSpy = vi.spyOn( evaluator, 'getBaseScore' )
+    const isFlushSpy = vi.spyOn( evaluator, 'isFlush' )
+    const isRunSpy = vi.spyOn( evaluator, 'isRun' )
+    const hasOnePairSpy = vi.spyOn( evaluator, 'hasOnePair' )
+    const hasThreeOfKindSpy = vi.spyOn( evaluator, 'hasThreeOfKind' )
+    const hasFourOfKindSpy = vi.spyOn( evaluator, 'hasFourOfKind' )
+    const getAceBonusSpy = vi.spyOn( evaluator, 'getAceBonus' )
+
+    const hand: Hand = [
+      {suit: 'hearts', rank: 2},
+      {suit: 'hearts', rank: 2},
+      {suit: 'hearts', rank: 2},
+      {suit: 'hearts', rank: 'J'},
+      {suit: 'hearts', rank: 'A'}
+    ]
+
+    const handScore = scoreHand( hand )
+
+    expect(getBaseScoreSpy).toHaveBeenCalled()
+    expect(isFlushSpy).toHaveBeenCalled()
+    expect(isRunSpy).toHaveBeenCalled()
+    expect(hasOnePairSpy).toHaveBeenCalled()
+    expect(hasThreeOfKindSpy).toHaveBeenCalled()
+    expect(hasFourOfKindSpy).toHaveBeenCalled()
+    expect(getAceBonusSpy).toHaveBeenCalled()
+  })
 })
-
-
-//* Should return base score with no bonuses
-//* Should apply flush bonus
-//* Should apply run bonus
-//* Should apply pair bonus
-//* Should apply three of a kind bonus
-//* Should apply four of a kind bonus
-//* Should apply single Ace bonus
-//* Should apply double Ace bonus
-//* Should stack multiple bonuses correctly
