@@ -2,7 +2,6 @@ import { getRankCounts } from "../../src/evaluator"
 import { Hand } from "../../src/types"
 
 describe('getRankCounts', () => {
-
   test('Should return count 1 for unique ranks', ()=>{
     const hand: Hand = [
       {suit: 'hearts', rank: 2},
