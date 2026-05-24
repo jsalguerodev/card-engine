@@ -15,7 +15,6 @@ const options = {
 }
 
 describe('createPlayer', () => {
-
   test('Should create a player with the correct id', () => {
     const {id} = createPlayer( options )
 

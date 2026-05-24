@@ -10,6 +10,7 @@ export const createPlayer = ( options: CreatePlayerOptions ) : Player => {
 
   return {
     id: id,
-    hand: hand
+    hand: hand,
+    isFinished: false
   }
 }
