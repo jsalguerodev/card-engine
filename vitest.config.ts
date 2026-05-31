@@ -5,6 +5,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'v8'
-    }
+    },
+    include: ['tests/**/*.test.ts']
   }
 })
