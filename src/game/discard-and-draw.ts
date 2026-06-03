@@ -22,7 +22,6 @@ export const discardAndDraw = (hand: Hand, cardToDiscard: Card, deck: Deck) : Di
   const returnHand = [...hand]
   returnHand.splice(index, 1, drawnCard)
 
-  console.log(returnHand)
   return {
     returnHand,
     remainingDeck,
