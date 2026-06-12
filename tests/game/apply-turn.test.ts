@@ -141,10 +141,6 @@ describe('applyTurn', () => {
     expect( maxRounds ).toBe( state.maxRounds )
   })
 
-  test('Should set winner when the game ends', () => {
-
-  })
-
   test('Should update the player hand after drawing and discarding', () => {
     const player1Snapshot = structuredClone(state.players[0])
 
